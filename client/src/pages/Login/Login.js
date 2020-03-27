@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 
 import { loginUserWithEmail } from '../../store/actions/authActions';
+import { FACEBOOK_AUTH_LINK, GOOGLE_AUTH_LINK } from '../../constants';
 import './styles.css';
 
 const Login = ({ errors, auth, history, loginUserWithEmail }) => {
@@ -44,10 +45,10 @@ const Login = ({ errors, auth, history, loginUserWithEmail }) => {
         </p>
         <form onSubmit={onSubmit}>
           <h2>Log in with social media</h2>
-          <a className="fb btn" href="https://localhost:5000/auth/facebook">
+          <a className="fb btn" href={FACEBOOK_AUTH_LINK}>
             <i class="fa fa-facebook fa-fw" /> Login with Facebook
           </a>
-          <a className="google btn" href="https://localhost:5000/auth/google">
+          <a className="google btn" href={GOOGLE_AUTH_LINK}>
             <i class="fa fa-google fa-fw" />
             Login with Google
           </a>
@@ -75,7 +76,7 @@ const Login = ({ errors, auth, history, loginUserWithEmail }) => {
             {isLoading ? (
               <p>Loading...</p>
             ) : (
-              <button className="btn" disabled={false} type="submit">
+              <button className="btn submit" disabled={false} type="submit">
                 Log in now
               </button>
             )}
