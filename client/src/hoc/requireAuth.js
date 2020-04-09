@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-export default ChildComponent => {
+export default (ChildComponent) => {
   class ComposedComponent extends Component {
     // Our component just got rendered
     componentDidMount() {
@@ -15,7 +15,7 @@ export default ChildComponent => {
 
     //token ima auth nema, prepisi ga sa func component i useefect
     shouldNavigateAway() {
-      if (!this.props.auth.token) {
+      if (!this.props.auth.isAuthenticated) {
         this.props.history.push('/');
       }
     }
